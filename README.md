@@ -1,2 +1,13 @@
-# my-pomodoro
-Aplicação pomodoro com HTML+CSS+JS
+# My Pomodoro
+Uma aplicação para auxiliar o gerenciamento de tempo com a técnica pomodoro.
+
+## :warning: Status
+:construction: Em desenvolvimento :construction:
+
+## :rocket: Demonstração
+<a href="https://douglasleal.github.io/pomodoro/">Clique aqui para ver o projeto em execução</a>
+
+## :computer: Tecnologias
+* HTML
+* CSS
+* JavaScript

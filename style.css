@@ -1,0 +1,140 @@
+:root{
+    --bg-color-pomodoro: lightcoral;
+    --bg-color-pausacurta: lightskyblue;
+    --bg-color-pausalonga: lightgreen;
+    --border-radius: 50px;
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;    
+}
+
+body{
+    position: relative;
+    overflow: hidden;
+}
+
+.titulo{
+    font-family: 'Pacifico', cursive;
+    font-size: 3rem;
+    line-height: 1;
+    text-align: center;
+    padding: 50px 0;
+}
+
+.container{
+    border: 5px solid gray;
+    border-radius: var(--border-radius);
+    height: 500px;
+    width: 750px;
+    margin: 0 auto;
+}
+
+.display{
+    font-family: 'Ubuntu mono', monospace;
+    font-size: 10rem;
+    line-height: 1;
+    margin-bottom: 50px;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.controles{
+    display: flex;
+    justify-content: center;
+}
+
+.btn{
+    width: 200px;
+    height: 50px;
+    font-size: 2rem;
+    border-radius: var(--border-radius);
+    border: 3px solid gray;
+    border-bottom: 5px solid gray;
+    margin: 0 10px;
+}
+
+.btn:active{
+    border: 2px solid gray;
+    transform: translateY(2px);
+}
+
+.d-none{
+    display: none;
+}
+
+.btn-menu{
+    width: 50px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 5px;
+    position: absolute;
+    top:25px;
+    right: 25px;
+    margin: 0;
+    transition: right .75s;
+}
+
+.btn-menu span{
+    background-color: gray;
+    display: block;
+    width: 100%;
+    height: 5px;
+    border-radius: 5px;
+}
+
+.menu{
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, .75);
+    padding: 25px;
+    position: absolute;
+    right: -250px;
+    transition: right .75s;
+}
+
+.menu label{
+    color: #fff;
+    font-family: 'Ubuntu mono', monospace;
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.menu input{
+    margin-bottom: 15px;
+    font-family: 'Ubuntu mono', monospace;
+    font-size: 1.5rem;
+    padding: 5px;
+    text-align: center;
+    -moz-appearance:textfield;
+    border: 3px solid gray;
+    border-radius: var(--border-radius);
+    margin-bottom: 25px;
+}
+
+input::-webkit-inner-spin-button{
+    appearance: none;
+}
+
+.btn-salvar{
+    font-size: 1rem;
+    width: 100px;
+    height: 35px;
+    margin: 0 auto;
+}
+
+.btn-menu.show-menu{
+    right: 275px;
+}
+
+.menu.show-menu{
+    right:0;
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Pomodoro</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Ubuntu+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <button id="btnMenu" class="btn btn-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+    <div id="menu" class="menu">
+        <label for="pomodoro">Pomodoro</label>
+        <input id="pomodoro" type="number" value="15">
+
+        <label for="pausaCurta">Pausa Curta</label>
+        <input id="pausaCurta" type="number" value="5">
+        
+        <label for="pausaLonga">Pausa Longa</label>
+        <input id="pausaLonga" type="number" value="15">
+        
+        <button id="btnSalvar" class="btn btn-salvar">Salvar</button>
+    </div>
+
+    <h1 class="titulo">My Pomodoro</h1>
+    <div class="container">
+        
+        <p id="display" class="display">00:00</p>
+
+        <div class="controles">
+            <button id="btnIniciar" class="btn">Iniciar</button>
+            <button id="btnParar" class="btn d-none">Parar</button>
+            <button id="btnContinuar" class="btn d-none">Continuar</button>
+            <button id="btnReiniciar" class="btn d-none">Reiniciar</button>
+        </div>
+
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>
