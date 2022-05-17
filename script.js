@@ -1,3 +1,4 @@
+const body = document.querySelector('body');
 const display = document.getElementById('display');
 const menu = document.getElementById('menu');
 
@@ -36,14 +37,23 @@ function alterarTempos(){
 
 function prepararPomodoro() {
     minutos = tempoPomodoro;
+    body.classList.add('bg-pomodoro');
+    body.classList.remove('bg-pausa-curta');
+    body.classList.remove('bg-pausa-longa');
 }
 
 function prepararPausaCurta() {
     minutos = tempoPausaCurta;
+    body.classList.remove('bg-pomodoro');
+    body.classList.add('bg-pausa-curta');
+    body.classList.remove('bg-pausa-longa');
 }
 
 function prepararPausaLonga() {
     minutos = tempoPausaLonga;
+    body.classList.remove('bg-pomodoro');
+    body.classList.remove('bg-pausa-curta');
+    body.classList.add('bg-pausa-longa');
 }
 
 function atualizarDisplay() {
