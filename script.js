@@ -122,7 +122,7 @@ function iniciar() {
 
     contador = setInterval(() => {
         contar();
-    }, 10)
+    }, 1000)
 }
 
 function parar() {
