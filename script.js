@@ -1,4 +1,5 @@
 const body = document.querySelector('body');
+const container = document.querySelector('.container');
 const display = document.getElementById('display');
 const menu = document.getElementById('menu');
 
@@ -7,6 +8,7 @@ const inputPausaCurta = document.getElementById('pausaCurta');
 const inputPausaLonga = document.getElementById('pausaLonga');
 
 const btnMenu = document.getElementById('btnMenu');
+const btnTemaEscuro = document.getElementById('btnTemaEscuro');
 const btnSalvar = document.getElementById('btnSalvar');
 const btnIniciar = document.getElementById('btnIniciar');
 const btnParar = document.getElementById('btnParar');
@@ -26,9 +28,9 @@ let contador = null;
 let descanso = false;
 let quantidadePausasCurtas = 0;
 
-
+let temaEscuro = false;
 //------------------------------
-function alterarTempos(){
+function alterarTempos() {
     tempoPomodoro = inputPomodoro.value;
     tempoPausaCurta = inputPausaCurta.value;
     tempoPausaLonga = inputPausaLonga.value;
@@ -37,23 +39,42 @@ function alterarTempos(){
 
 function prepararPomodoro() {
     minutos = tempoPomodoro;
-    body.classList.add('bg-pomodoro');
-    body.classList.remove('bg-pausa-curta');
-    body.classList.remove('bg-pausa-longa');
+    
+        container.classList.add('container-pomodoro');
+        container.classList.remove('container-pausa-curta');
+        container.classList.remove('container-pausa-longa');
+    
+        body.classList.add('bg-pomodoro');
+        body.classList.remove('bg-pausa-curta');
+        body.classList.remove('bg-pausa-longa');
+    
 }
 
 function prepararPausaCurta() {
     minutos = tempoPausaCurta;
-    body.classList.remove('bg-pomodoro');
-    body.classList.add('bg-pausa-curta');
-    body.classList.remove('bg-pausa-longa');
+    
+        container.classList.remove('container-pomodoro');
+        container.classList.add('container-pausa-curta');
+        container.classList.remove('container-pausa-longa');
+    
+        body.classList.remove('bg-pomodoro');
+        body.classList.add('bg-pausa-curta');
+        body.classList.remove('bg-pausa-longa');
+    
+
 }
 
 function prepararPausaLonga() {
     minutos = tempoPausaLonga;
-    body.classList.remove('bg-pomodoro');
-    body.classList.remove('bg-pausa-curta');
-    body.classList.add('bg-pausa-longa');
+    
+        container.classList.remove('container-pomodoro');
+        container.classList.remove('container-pausa-curta');
+        container.classList.add('container-pausa-longa');
+    
+        body.classList.remove('bg-pomodoro');
+        body.classList.remove('bg-pausa-curta');
+        body.classList.add('bg-pausa-longa');
+    
 }
 
 function atualizarDisplay() {
@@ -62,7 +83,7 @@ function atualizarDisplay() {
     display.innerText = `${m}:${s}`;
 }
 
-function pararContador(){
+function pararContador() {
     clearInterval(contador);
 }
 
@@ -73,19 +94,19 @@ function contar() {
         if (minutos > 0) {
             minutos--;
             segundos = 59;
-        }else{
+        } else {
             pararContador();
             btnParar.classList.add('d-none');
             btnIniciar.classList.remove('d-none');
-            
+
             descanso = !descanso;
-            if(descanso && quantidadePausasCurtas < 3){
+            if (descanso && quantidadePausasCurtas < 3) {
                 quantidadePausasCurtas++;
                 prepararPausaCurta();
-            }else if(descanso && quantidadePausasCurtas == 3){
+            } else if (descanso && quantidadePausasCurtas == 3) {
                 quantidadePausasCurtas = 0;
                 prepararPausaLonga();
-            }else{
+            } else {
                 prepararPomodoro();
             }
         }
@@ -99,9 +120,9 @@ function iniciar() {
     btnReiniciar.classList.add('d-none');
     btnParar.classList.remove('d-none');
 
-    contador = setInterval(()=>{
+    contador = setInterval(() => {
         contar();
-    }, 1000)
+    }, 10)
 }
 
 function parar() {
@@ -111,7 +132,7 @@ function parar() {
     pararContador();
 }
 
-function reiniciar(){
+function reiniciar() {
     btnIniciar.classList.remove('d-none');
     btnParar.classList.add('d-none');
     btnReiniciar.classList.add('d-none');
@@ -119,10 +140,15 @@ function reiniciar(){
 
     descanso = false;
     segundos = 0;
-    quantidadePausasCurtas=0;
+    quantidadePausasCurtas = 0;
     pararContador();
     prepararPomodoro();
-    atualizarDisplay();   
+    atualizarDisplay();
+}
+
+function mudaTema() {
+    body.classList.toggle('tema-escuro');
+    temaEscuro = !temaEscuro;
 }
 
 btnIniciar.onclick = () => iniciar();
@@ -130,6 +156,7 @@ btnContinuar.onclick = () => iniciar();
 btnParar.onclick = () => parar();
 btnReiniciar.onclick = () => reiniciar();
 btnSalvar.onclick = () => alterarTempos();
+btnTemaEscuro.onclick = () => mudaTema();
 btnMenu.onclick = () => {
     menu.classList.toggle('show-menu');
     btnMenu.classList.toggle('show-menu');

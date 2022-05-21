@@ -153,3 +153,37 @@ input::-webkit-inner-spin-button{
 .bg-pausa-longa{
     background-color: var(--bg-color-pausalonga);
 }
+
+.tema-escuro{
+    background-color: #1c1c1c;
+    color: lavender;
+}
+
+.tema-escuro .menu{
+    background-color: rgba(255, 255, 255, .25);
+}
+
+.tema-escuro .container-pomodoro{
+    border-color: var(--bg-color-pomodoro);
+}
+
+.tema-escuro .container-pausa-curta{
+    border-color: var(--bg-color-pausacurta);
+}
+
+.tema-escuro .container-pausa-longa{
+    border-color: var(--bg-color-pausalonga);
+}
+
+.btn-tema-escuro{
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    width: 50px;
+    height: 50px;
+    background-color: var(--border-color);
+}
+
+.btn-tema-escuro img{
+    width: 100%;
+}
